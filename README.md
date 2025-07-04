@@ -1,0 +1,1 @@
+benim prom şu şu adımlardan olucaşk
