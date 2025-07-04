@@ -20,12 +20,12 @@ This project aims to develop an embedded prototype system that:
 
 | No | Work Package | Duration | Schedule | Deliverables / Success Criteria |
 |----|--------------|----------|----------|----------------------------------|
-| 1 | **ESP32 + Temperature Sensor Trials** | 1 week | Jul 7–13, 2025 | - DS18B20 setup and reading code<br>- Serial monitor output<br>- Accuracy comparison (±0.5 °C) |
-| 2 | **ESP32 + Humidity Sensor Trials** | 1 week | Jul 14–20, 2025 | - SHT31 or DHT22 code integration<br>- Logged RH values<br>- Sensor stability evaluation |
-| 3 | **Combined Temperature & Humidity Operation** | 1 week | Jul 21–27, 2025 | - Integrated I²C/OneWire communication<br>- Dew point calculation logic<br>- Exportable CSV logging |
-| 4 | **MQTT vs Wi-Fi vs Node-RED Research** | 2 days | Jul 28–29, 2025 | - Comparative documentation (pros/cons)<br>- Demo: MQTT Explorer & Node-RED dashboard |
-| 5 | **Communication Architecture Decision** | 1 week | Jul 30–Aug 5, 2025 | - Final selection (e.g., Wi-Fi + MQTT)<br>- Security structure proposal<br>- Broker connectivity test |
-| 6 | **Final System Assembly & Field Testing** | 1 week | Aug 6–12, 2025 | - Physical prototype assembly<br>- 48-hour continuous data logging<br>- Draft version of fog-prevention algorithm<br>- Slideshow for next development phase |
+| 1 | **ESP32 Installation & initial testing** | 2 week | Jul 7–20, 2025 | - Board definitions loaded in Arduino IDE<br>- “Blink”/Wi‑Fi scan demo runs<br>- Serial/USB connection verified |
+| 2 | **ESP32 + SHT4X Setup Monitoring** | 1 week | Jul 20–27, 2025 | - SHT4x library integrated<br>- Continuous T & RH readings logged<br>- Basic accuracy check vs reference meter |
+| 3 | **Combined Temperature & Humidity Operation** | 1 week | Jul 27–3, 2025 | - Integrated I²C/OneWire communication<br>- Dew point calculation logic<br>- Exportable CSV logging |
+| 4 | **MQTT vs Wi-Fi vs Node-RED Research** | 2 days | Sep 3–5, 2025 | - Comparative documentation (pros/cons)<br>- Demo: MQTT Explorer & Node-RED dashboard |
+| 5 | **Communication Architecture Decision** | 1 week | Sep 5–10, 2025 | - Final selection (e.g., Wi-Fi + MQTT)<br>- Security structure proposal<br>- Broker connectivity test |
+| 6 | **Final System Assembly & Field Testing** | 1 week | Sep 10–17, 2025 | - Physical prototype assembly<br>- 48-hour continuous data logging<br>- Draft version of fog-prevention algorithm<br>- Slideshow for next development phase |
 
 ---
 
