@@ -1,4 +1,4 @@
-Proje Amacı
+#Proje Amacı
 Bu proje, soğuk hava depoları, izole kutular veya yüksek nemli ortamlarda çalışan sensör sistemlerinde karşılaşılan fog (yoğuşma) problemini önlemeye yönelik gömülü sistem çözümüdür.
 
 ESP32 mikrodenetleyici kullanılarak;
