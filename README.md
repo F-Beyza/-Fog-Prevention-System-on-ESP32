@@ -49,5 +49,5 @@ This project aims to develop an embedded prototype system that:
 
 ---
 
-## 📁 Repository Structure (Planned)
+
 
