@@ -1,1 +1,1 @@
-benim prom şu şu adımlardan olucaşk
+benim projem:
