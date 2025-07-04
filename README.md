@@ -1,52 +1,53 @@
-ARA ÇIKTI RAPORU
-Fog Önleme Sensör Sistemi (ESP32 tabanlı)
-Tarih : 4 Temmuz 2025
+# ☁️ Fog-Prevention Sensor System (ESP32-Based)
 
-1 | Proje Amacı
-Soğuk oda içinde oluşan fog (yoğuşma) riskini ortadan kaldırmak için 
+**📅 Interim Progress Report — July 4, 2025**  
+A smart embedded system to prevent sensor fogging in cold environments using ESP32, temperature & humidity sensors, MQTT, and remote data monitoring.
 
-sıcaklık & nem değerlerini gerçek‑zamanlı izleyen,
+---
 
-seçilecek haberleşme altyapısıyla (Wi‑Fi/MQTT/Node‑RED) uzaktan raporlayan,
+## 📌 Project Objective
 
-ileri aşamada ısıtıcı / soğutucu aktüatörleri otomatik yönetecek
-bir gömülü sistem prototipi geliştirmek.
+This project aims to develop an embedded prototype system that:
 
-2 | Zaman Çizelgesi ve Ara Çıktılar
-(Başlangıç: 7 Temmuz 2025, haftalar pazartesi – pazar olarak planlandı.)
+- Continuously monitors **temperature** and **humidity** inside cold rooms or insulated boxes  
+- Transmits sensor data in real time via **Wi-Fi / MQTT / Node-RED**  
+- Automatically controls **heating or cooling actuators** (e.g., heater, Peltier module) to prevent fog formation  
+- Calculates **dew point (Td)** and triggers actions when fog risk is detected
 
-No	İş Paketi	Süre	Takvim	Ara Çıktı / Başarı Kriteri
-1	ESP32 + Isı Sensörü Denemeleri	1 hafta	7 → 13 Tem 2025	- DS18B20 ölçüm kodu
-- Seri ekranda sıcaklık akışı
-- Ölçüm doğruluk tablosu (±0.5 °C)
-2	ESP32 + Nem Sensörü Denemeleri	1 hafta	14 → 20 Tem 2025	- SHT31 / DHT22 okuma kodu
-- RH verisi kaydı
-- Sensör kararlılık raporu
-3	Isı + Nem Sensörlerini Birlikte Çalıştırma	1 hafta	21 → 27 Tem 2025	- Ortak I²C/OneWire çalışması
-- Çiğ noktası (Td) hesap fonksiyonu
-- CSV veri dosyası
-4	MQTT · Wi‑Fi · Node‑RED Karşılaştırması	2 gün	28 → 29 Tem 2025	- Kısa döküman: mimari farklar
-- Demo: MQTT Explorer & Node‑RED dashboard ekran görüntüsü
-5	Haberleşme Yöntemine Karar	1 hafta	30 Tem → 5 Ağu 2025	- Seçilen yöntem (örn. Wi‑Fi + MQTT)
-- Bağlantı güvenliği taslağı
-- Broker bağlantı testi
-6	Sistemin Son Hali & Saha Denemeleri	1 hafta	6 → 12 Ağu 2025	- Prototip kutu montajı
-- 48 saatlik veri log’u
-- İlk fog‑önleme algoritması taslağı
-- Sunum slaydı (gelecek faz için öneriler)
+---
 
-3 | Kritik Noktalar & Riskler
-Başlık	Açık / Risk	Önlem
-Sensör kalibrasyonu	±1 °C / ±3 %RH üzerinde sapma oluşabilir	Referans termometre‑higrometre ile çapraz test
-Güç bütçesi	Sonradan eklenecek Peltier + ısıtıcı yüksek akım çeker	12 V / 6 A adaptör + ayri buck dönüştürücü
-MQTT güvenliği	Şirket ağına TLS’siz erişim kabul edilmeyebilir	TLS 1.3 + kullanıcı/parola + ağ VLAN’ı
-Veri kaybı	Wi‑Fi kesintisi	Yerel SD kart tamponu (paket 6’da)
+## 📆 Work Packages & Deliverables
 
-4 | İleri Aşamada Planlanan Adımlar (Özet)
-PID tabanlı sıcaklık‑nem denetimi (heater / Peltier kontrolü)
+| No | Work Package | Duration | Schedule | Deliverables / Success Criteria |
+|----|--------------|----------|----------|----------------------------------|
+| 1 | **ESP32 + Temperature Sensor Trials** | 1 week | Jul 7–13, 2025 | - DS18B20 setup and reading code<br>- Serial monitor output<br>- Accuracy comparison (±0.5 °C) |
+| 2 | **ESP32 + Humidity Sensor Trials** | 1 week | Jul 14–20, 2025 | - SHT31 or DHT22 code integration<br>- Logged RH values<br>- Sensor stability evaluation |
+| 3 | **Combined Temperature & Humidity Operation** | 1 week | Jul 21–27, 2025 | - Integrated I²C/OneWire communication<br>- Dew point calculation logic<br>- Exportable CSV logging |
+| 4 | **MQTT vs Wi-Fi vs Node-RED Research** | 2 days | Jul 28–29, 2025 | - Comparative documentation (pros/cons)<br>- Demo: MQTT Explorer & Node-RED dashboard |
+| 5 | **Communication Architecture Decision** | 1 week | Jul 30–Aug 5, 2025 | - Final selection (e.g., Wi-Fi + MQTT)<br>- Security structure proposal<br>- Broker connectivity test |
+| 6 | **Final System Assembly & Field Testing** | 1 week | Aug 6–12, 2025 | - Physical prototype assembly<br>- 48-hour continuous data logging<br>- Draft version of fog-prevention algorithm<br>- Slideshow for next development phase |
 
-Fog alarm eşikleri → Node‑RED üzerinden e‑posta / SMS bildirimi
+---
 
-Kutu izolasyonu & anti‑fog kaplama testleri
+## ⚠️ Key Risks & Mitigation Plans
 
-Uzun süreli (1 hafta) saha testi → enerji tüketimi & performans raporu
+| Topic | Risk | Mitigation |
+|-------|------|------------|
+| **Sensor Calibration** | ±1 °C or ±3 %RH deviations possible | Use reference-grade thermometer/hygrometer for validation |
+| **Power Budget** | Heater + Peltier might exceed ESP32 supply | Use 12V/6A power supply + separate buck converter |
+| **MQTT Security** | Company firewall may block unencrypted connections | Use TLS 1.3 + login credentials + secure VLAN |
+| **Data Loss** | Possible Wi-Fi disconnection | Add SD card logging as a backup (planned in WP6) |
+
+---
+
+## 🔭 Planned Next Steps
+
+- Implement **PID-controlled environment regulation** (for heater and Peltier)
+- Define **fog-risk thresholds** and send real-time alerts via Node-RED (email/SMS)
+- Test **anti-fog coating** and **insulated casing designs**
+- Run **1-week-long field tests** to evaluate energy use and control performance
+
+---
+
+## 📁 Repository Structure (Planned)
+
